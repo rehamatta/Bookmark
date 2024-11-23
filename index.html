@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="text-center">Bookmark</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="text-center">
+                <i class="fa-solid fa-bookmark" style="color: #3ea55c;"></i>
+                Bookmark your favorite sites
+                <i class="fa-solid fa-bookmark" style="color: #b3ac4a;"></i>
+            </h2>
+        </section>
+
+        <section>
+            <div class="container">
+                <div>
+                    <label for="siteName">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>
+                        Site Name
+                    </label> <br>
+                    <input oninput="siteNameValidation()" id="siteName" class="form-control mb-3" type="text" placeholder="Bookmark Name" aria-label="default input example">
+                </div>
+                <div>
+                    <label for="siteUrl">
+                        <i class="fa-solid fa-link pe-2"></i>
+                        Site URL
+                    </label><br>
+                    <input oninput="siteUrlValidation()" id="siteUrl" class="form-control mb-3" type="url" placeholder="Website URL" aria-label="default input example">
+                </div>
+    
+                <div class="text-center mt-4">
+                    <button onclick="addtData()" id="submitBtn" class="submit-btn">Submit</button>   
+                </div> 
+            </div>
+        </section>
+
+        <section>
+            <div class="container d-flex justify-content-center">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Website Name</th>
+                            <th>Visit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <div id="popupWindow" class="popup d-none">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closePopup()">&times;</span>
+                    <p>Site Name or Url is not valid, Please follow the rules below :</p>
+                    <ul>
+                        <li><i class="fa-regular fa-circle-right" style="color: #f54900;"></i> Site name must contain at least 3 characters</li>
+                        <li><i class="fa-regular fa-circle-right" style="color: #f54900;"></i> Site URL must be a valid one</li>
+                        <li><i class="fa-regular fa-circle-right" style="color: #f54900;"></i> Bookmark shouldn't be repeated</li>
+                    </ul>
+                </div>
+            </div>            
+        </section>
+    </main>
+
+
+
+
+
+
+
+    
+
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
