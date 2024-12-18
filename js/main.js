@@ -30,11 +30,12 @@ function addtData() {
       localStorage.setItem("bookMarkContainer", JSON.stringify(bookMarkList));
       displayBookMark();
       clearData();
+      toastr.success('Added Successfully!', 'Bookmark')
     } else {
       document.getElementById("popupWindow").classList.remove("d-none");
       count = 0;
     }
-  } else document.getElementById("popupWindow").classList.remove("d-none");
+  } else document.getElementById("popupWindow").classList.remove("d-none");          
 }
 function closePopup() {
   document.getElementById("popupWindow").classList.add("d-none");
@@ -61,10 +62,27 @@ function displayBookMark() {
   }
   document.getElementById("tBody").innerHTML = cartona;
 }
-function deleteBookMark(index) {
-  bookMarkList.splice(index, 1);
-  displayBookMark();
-  localStorage.setItem("bookMarkContainer", JSON.stringify(bookMarkList));
+async function deleteBookMark(index) {
+  await Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      Swal.fire({ 
+        title: "Deleted!",  
+        text: "Your Bookmark has been deleted.",    
+        icon: "success"  
+      });
+      bookMarkList.splice(index, 1);
+      await displayBookMark();
+      localStorage.setItem("bookMarkContainer", JSON.stringify(bookMarkList));  
+    }
+  });
 }
 function siteNameValidation() {
   var term = siteNameInput.value;
